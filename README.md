@@ -38,7 +38,7 @@ git clone [https://github.com/x11kitty/uwu.git](https://github.com/x11kitty/uwu.
 
 | Shortcut | Action |
 | :--- | :--- |
-| `Super + Enter` | Open Terminal |
-| `Super + Alt + q` | Quit bspwm |
+| `Super + T` | Open Terminal |
+| `Super + Q` | Close Windows |
 | `Super + {h,j,k,l}` | Focus window in direction |
 | `Super + Space` | App Launcher (Rofi/Dmenu) |
