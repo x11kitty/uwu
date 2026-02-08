@@ -45,3 +45,8 @@ git clone https://github.com/x11kitty/uwu.git
 | `Super + Shift + X` | Focus window in direction |
 | `Super + R` | App Launcher (Rofi) |
 | `Super + D` | App Launcher (Dmenu) |
+
+<div align="center">
+  <img src="https://waifu.now.sh/sfw/waifu" width="300" alt="Anime Character" />
+  <p><i>Stay comfy and keep coding.</i></p>
+</div>
