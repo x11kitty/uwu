@@ -49,7 +49,7 @@ git clone https://github.com/x11kitty/uwu.git
 ---
 
 <div align="center">
-  <img src="https://waifu.now.sh/sfw/waifu" width="300" style="border-radius: 15px;" alt="Random Anime Character" />
+  <img src="images/wif.png" width="300" style="border-radius: 15px;" alt="Random Anime Character" />
   <p><i>"System optimized. Stay comfy and keep coding."</i></p>
   <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=100&section=footer" width="100%" />
 </div>
