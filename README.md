@@ -4,7 +4,7 @@
 My Arch Linux Bspwm Configs Minimal And Simple Desktop Environment This is For My Laptop Which is Dell latitute 7480 you can Change According to You System And Use It or Also You Use Only Config To Your Os
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/banners/dotfiles.png" alt="Banner">
+  <img src="https://github.com/x11kitty/uwu/images/2.png" alt="Banner">
   <h1 align="center">My Arch Linux Dotfiles</h1>
   <p align="center">
     A minimal, tiling window manager setup built for speed and aesthetics.
