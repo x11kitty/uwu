@@ -18,7 +18,6 @@
 ---
 
 ## 🛠️ Info :-
-
 * **Distro:** [Arch Linux](https://archlinux.org/) 
 * **WM:** [bspwm](https://github.com/baskerville/bspwm) (Binary Space Partitioning WM)
 * **Hotkeys:** [sxhkd](https://github.com/baskerville/sxhkd)
