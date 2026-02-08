@@ -48,10 +48,6 @@ git clone https://github.com/x11kitty/uwu.git
 
 ---
 
-<p align="right">
-  <img src="your_image_path_here.png" width="250" alt="Sitting Waifu" />
-</p>
-
 <div align="center">
   <img src="https://waifu.now.sh/sfw/waifu" width="300" style="border-radius: 15px;" alt="Random Anime Character" />
   <p><i>"System optimized. Stay comfy and keep coding."</i></p>
