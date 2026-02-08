@@ -47,6 +47,13 @@ git clone https://github.com/x11kitty/uwu.git
 | `Super + D` | App Launcher (Dmenu) |
 
 ---
+
+<p align="right">
+  <img src="your_image_path_here.png" width="250" alt="Sitting Waifu" />
+</p>
+
 <div align="center">
-  <img src="https://moe-counter.glitch.me/get/@your-github-username?theme=rule34" alt="Moe Counter" />
+  <img src="https://waifu.now.sh/sfw/waifu" width="300" style="border-radius: 15px;" alt="Random Anime Character" />
+  <p><i>"System optimized. Stay comfy and keep coding."</i></p>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=100&section=footer" width="100%" />
 </div>
