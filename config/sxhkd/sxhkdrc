@@ -118,6 +118,9 @@ super + Escape
 super + alt + r
     bspc wm -r
 
+super + shift + x
+    bspc quit
+
 # ======================
 # UTILITY KEYS
 # ======================
