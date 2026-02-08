@@ -52,9 +52,9 @@ yay -S --noconfirm wlogout nm-applet xwinwrap-git otf-ipafont \
 
 ## 4. Repository Setup
 if [ ! -d "uwu" ]; then
-    git clone https://github.com/x11kitty/uwu.git
+    git clone https://github.com/x11kitty/nya.git
 fi
-cd uwu
+cd nya
 
 echo "⚙️ Deploying configurations..."
 cp -r config/* ~/.config/
