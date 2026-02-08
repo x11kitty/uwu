@@ -40,5 +40,6 @@ git clone [https://github.com/x11kitty/uwu.git](https://github.com/x11kitty/uwu.
 | :--- | :--- |
 | `Super + T` | Open Terminal |
 | `Super + Q` | Close Windows |
-| `Super + {h,j,k,l}` | Focus window in direction |
-| `Super + Space` | App Launcher (Rofi/Dmenu) |
+| `Super + Shift + X` | Focus window in direction |
+| `Super + R` | App Launcher (Rofi) |
+| `Super + D` | App Launcher (Dmenu) |
