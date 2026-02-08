@@ -33,3 +33,9 @@ To replicate this setup, clone the repository and move the config files to your 
 # Clone the repo
 git clone [https://github.com/x11kitty/uwu.git](https://github.com/x11kitty/uwu.git)
 ```
+
+Shortcut,Action
+Super + Enter,Open Terminal
+Super + Alt + q,Quit bspwm
+"Super + {h,j,k,l}",Focus window in direction
+Super + Space,App Launcher (Rofi/Dmenu)
