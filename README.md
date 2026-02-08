@@ -31,7 +31,7 @@ To replicate this setup, clone the repository and move the config files to your 
 
 ```bash
 # Clone the repo
-git clone [https://github.com/x11kitty/uwu.git](https://github.com/x11kitty/uwu.git)
+git clone https://github.com/x11kitty/uwu.git
 ```
 
 ### ⌨️ Keybindings
