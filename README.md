@@ -14,7 +14,6 @@
   <img src="images/rev.png".png" alt="App Launcher">
   <img src="images/rof.png" alt="System Usage">
   <img src="images/all.png" alt="Code Editor">
-  <img src="images/pis.png" alt="Code Editor">
   <img src="images/piv.png" alt="Code Editor">
 </details>
 
