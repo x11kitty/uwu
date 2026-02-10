@@ -1,59 +1,143 @@
-# --- 1. SETTINGS & HISTORY ---
-HISTCONTROL=ignoreboth:erasedups
-HISTSIZE=5000
-HISTFILESIZE=10000
-shopt -s histappend
-shopt -s checkwinsize
+# ~/.bashrc
 
-# --- 2. PROFESSIONAL ALIASES ---
-alias ll='ls -alF --color=auto --group-directories-first'
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias c='clear'
-alias ..='cd ..'
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-# --- 3. REFINED MOCHA COLORS (Extreme Vibrance / Deep Tones) ---
-# Removed almost all 'white' from the RGB mix to maximize saturation depth.
-C_BLUE='\[\e[1;38;2;70;130;255m\]'      # Intense Deep Sky Blue
-C_GREEN='\[\e[1;38;2;80;210;70m\]'      # Sharp, Deep Emerald Green
-C_SAPPHIRE='\[\e[1;38;2;40;160;230m\]'  # Solid Steel Sapphire
-C_PINK='\[\e[1;38;2;240;100;200m\]'     # Hot Mocha Pink
-C_LAVENDER='\[\e[1;38;2;120;120;250m\]' # Midnight Lavender
-C_PEACH='\[\e[1;38;2;255;110;40m\]'     # Deep Burnt Orange-Peach
-C_PURPLE='\[\e[1;38;2;160;80;250m\]'    # Rich Electric Mauve
-C_RED='\[\e[1;38;2;230;30;70m\]'        # Blood-Orange / Crimson (Pure Contrast)
-C_RESET='\[\e[0m\]'
+# ===== CATPPUCCIN MOCHA (RETRO TOKYO) COLORS =====
+MAUVE='\[\033[38;5;183m\]'     # Soft Purple
+LAVENDER='\[\033[38;5;147m\]'  # Light Blue/Purple
+SAPPHIRE='\[\033[38;5;74m\]'   # Deep Cyan
+SKY='\[\033[38;5;117m\]'       # Sky Blue
+TEAL='\[\033[38;5;115m\]'      # Seafoam
+PINK='\[\033[38;5;212m\]'      # Retro Pink
+FLAMINGO='\[\033[38;5;218m\]'  # Soft Rose
+TEXT='\[\033[38;5;253m\]'      # Off-white
+SUBTEXT='\[\033[38;5;246m\]'   # Grayish
+SURFACE='\[\033[38;5;239m\]'   # Dark Gray
 
-# --- 4. GIT BRANCH FUNCTION ---
-get_git_info() {
-    local branch
-    if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-        if [[ -n $(git status -s 2> /dev/null) ]]; then
-            echo -ne " ${C_RED} ${branch}*${C_RESET}"
-        else
-            echo -ne " ${C_PURPLE} ${branch}${C_RESET}"
-        fi
+BOLD='\[\033[1m\]'
+RESET='\[\033[0m\]'
+
+# ===== PROMPT LOGIC =====
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/  \1/'
+}
+
+git_status() {
+    local status=$(git status --porcelain 2>/dev/null)
+    if [ -n "$status" ]; then
+        echo " ${PINK}●"  # Pink for dirty
+    else
+        echo " ${TEAL}●"  # Teal for clean
     fi
 }
 
-# --- 5. THE PROMPT CONSTRUCTION ---
-set_prompt() {
-    local EXIT_CODE=$?
-
-    # Line 1: Ultra-bold, high-separation layout
-    # Added extra spacing so the intense colors don't "bleed" into each other.
-    local L1="${C_BLUE} \t ${C_GREEN} \u${C_SAPPHIRE}@${C_PINK} \h ${C_LAVENDER}[${C_PEACH} \w${C_LAVENDER}]${C_RESET}\$(get_git_info)"
-
-    # Line 2: The Multi-Colored Rainbow Arrows
-    if [ $EXIT_CODE -eq 0 ]; then
-        # Pure saturated power flow
-        PS1="${L1}${C_BLUE}❯${C_GREEN}❯${C_PINK}❯${C_PURPLE}❯ ${C_RESET}"
+exit_status() {
+    if [ $? -eq 0 ]; then
+        echo "${TEAL}✓"
     else
-        # Critical contrast for errors
-        PS1="${L1}${C_RED}❯❯❯❯ [ERR: ${EXIT_CODE}] ${C_RESET}"
+        echo "${PINK}✗"
     fi
+}
+
+set_prompt() {
+    local exit_code="$(exit_status)"
+    local git_branch="$(parse_git_branch)"
+    local git_status_indicator="$(git_status)"
+
+    # Line 1: [✓] UwU@Archy-Chan [~/dir]
+    PS1="${BOLD}${SURFACE}[${exit_code}${SURFACE}] "
+    PS1+="${MAUVE}UwU${SUBTEXT}@${LAVENDER}Archy-Chan${RESET} "
+    PS1+="${BOLD}${SAPPHIRE}[󰄛 \w]${RESET}"
+
+    # Git branch info
+    if [ -n "$git_branch" ]; then
+        PS1+="${BOLD}${SKY}${git_branch}${git_status_indicator}${RESET}"
+    fi
+
+    # Line 2: The Gradient Arrows
+    PS1+="${BOLD}${LAVENDER}❯${MAUVE}❯${PINK}❯${FLAMINGO}❯${RESET} "
 }
 
 PROMPT_COMMAND=set_prompt
-# ---- 6 Neofetch
-# neofetch
+
+# ===== ALIASES =====
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+
+# Arch Linux (Pacman)
+alias update='sudo pacman -Syu'
+alias install='sudo pacman -S'
+alias remove='sudo pacman -Rns'
+alias search='pacman -Ss'
+alias orphans='pacman -Qtdq'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+# Modern overrides
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias grep='grep --color=auto'
+alias tree='tree -C'
+
+# Safety
+alias rm='rm -I --preserve-root'
+alias mv='mv -i'
+alias cp='cp -i'
+
+# Quick Edit
+alias bashrc='nvim ~/.bashrc'
+alias nvimrc='nvim ~/.config/nvim/init.lua'
+
+# ===== FUNCTIONS =====
+# Create and enter directory
+mkcd() { mkdir -p "$1" && cd "$1"; }
+
+# Archive extractor
+extract() {
+    if [ -f "$1" ] ; then
+        case "$1" in
+            *.tar.bz2)   tar xjf "$1"     ;;
+            *.tar.gz)    tar xzf "$1"     ;;
+            *.bz2)       bunzip2 "$1"     ;;
+            *.rar)       unrar x "$1"     ;;
+            *.gz)        gunzip "$1"      ;;
+            *.tar)       tar xf "$1"      ;;
+            *.tbz2)      tar xjf "$1"     ;;
+            *.tgz)       tar xzf "$1"     ;;
+            *.zip)       unzip "$1"       ;;
+            *.Z)         uncompress "$1"  ;;
+            *.7z)        7z x "$1"        ;;
+            *)           echo "'$1' cannot be extracted" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# Weather (Retro themed)
+weather() { curl -s "wttr.in/${1:-}?F" | head -7; }
+
+# ===== ENVIRONMENT & BEHAVIOR =====
+export EDITOR=nvim
+export VISUAL=nvim
+export HISTSIZE=10000
+export HISTCONTROL=ignoreboth:erasedups
+
+# Vi mode for the elite
+set -o vi
+
+# Better completion
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+
+# LS_COLORS for Mocha
+export LS_COLORS="di=1;34:ln=1;36:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;44"
+
+# FZF Integration
+if [ -f /usr/share/fzf/key-bindings.bash ]; then
+    source /usr/share/fzf/key-bindings.bash
+    export FZF_DEFAULT_OPTS='--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8'
+fi
