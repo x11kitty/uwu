@@ -1,0 +1,1 @@
+xwinwrap -g 1920x1080+0+0 -ni -s -st -sp -b -nf -ov -- mplayer -fixed-vo -quiet -loop 0 -nosound -vo xv -nocache -autosync 0 -mc 0 -noborder -nomouseinput -nolirc -nosub -noautosub -noconsolecontrols -identify -noslices -vfm ffmpeg -lavdopts lowres=0:fast:skiploopfilter=all:skipidct=all:threads=1 -wid %WID ~/Videos/LIVEWALLPAPER/1.mp4
