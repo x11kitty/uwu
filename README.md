@@ -15,6 +15,7 @@
   <img src="images/rof.png" alt="System Usage">
   <img src="images/all.png" alt="Code Editor">
   <img src="images/piv.png" alt="Code Editor">
+  <img src="images/wik.png" alt="Code Editor">
 </details>
 
 <p align="center">
