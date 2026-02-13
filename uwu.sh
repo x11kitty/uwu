@@ -67,7 +67,7 @@ sudo pacman -S --needed --noconfirm \
     wmctrl cpupower flatpak discover noto-fonts-cjk adobe-source-han-sans-jp-fonts \
     tlp python-sphinx python-packaging libuv cairo xcb-util xcb-util-wm \
     xcb-util-image xcb-util-xrm xcb-util-cursor alsa-lib libpulse jsoncpp \
-    libmpdclient libcurl-gnutls libnl materia-gtk-theme github-cli
+    libmpdclient libcurl-gnutls libnl materia-gtk-theme github-cli lxappearance qt5ct qt6ct breeze-gtk
 
 ## 2. AUR Helper (Yay)
 if ! command -v yay &> /dev/null; then
