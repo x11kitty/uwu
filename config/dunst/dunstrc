@@ -1,0 +1,62 @@
+[global]
+    monitor = 0
+    follow = mouse
+    width = 300
+    height = 120
+    origin = top-right
+    offset = 20x20
+    scale = 0
+
+    # Progress bar (Mocha Mauve)
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+
+    separator_height = 2
+    padding = 15
+    horizontal_padding = 15
+    text_icon_padding = 12
+
+    # Remove all edge and corner lines
+    frame_width = 0
+    frame_color = "#313244"
+
+    gap_size = 8
+    # Updated to a standard Nerd Font (requires JetBrainsMono Nerd Font installed)
+    font = JetBrainsMono Nerd Font 10
+
+    # Fast Response for Battery status changes
+    idle_threshold = 0
+    alignment = left
+    vertical_alignment = center
+    word_wrap = yes
+    stack_duplicates = false
+    hide_duplicate_count = true
+
+    # Icon settings for Battery/Thunderbolt logos
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+
+[urgency_low]
+    # Background: Mocha Base at 60% Opacity
+    background = "#1e1e2e99"
+    # Font: Mocha Sapphire (Dark Blue)
+    foreground = "#74c7ec"
+    timeout = 3
+p
+[urgency_normal]
+    # Background: Mocha Base at 60% Opacity
+    background = "#1e1e2e99"
+    # Font: Mocha Sapphire (Dark Blue)
+    foreground = "#74c7ec"
+    timeout = 5
+
+[urgency_critical]
+    # Background: Mocha Red at 60% Opacity (Low Battery)
+    background = "#f38ba899"
+    foreground = "#ffffff"
+    frame_width = 0
+    timeout = 0
