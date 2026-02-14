@@ -1,0 +1,117 @@
+/*=====================================================
+ *
+ * ██████╗  ██████╗ ███████╗██╗
+ * ██╔══██╗██╔═══██╗██╔════╝██║
+ * ██████╔╝██║   ██║█████╗  ██║
+ * ██╔══██╗██║   ██║██╔══╝  ██║
+ * ██║  ██║╚██████╔╝██║     ██║
+ * ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
+ *
+ *=====================================================*/
+configuration {
+    modi:                       "drun,run,calc:qalc,window";
+    show-icons:                  true;
+    icon-theme:                  "WhiteSur";
+    display-drun:                "";
+    display-run:                 "";
+    display-calc:                "";
+    display-window:              "";
+    drun-display-format:         "{name}";
+    window-format:               "{w} · {c} · {t}";
+}
+
+@theme "/dev/null"
+
+* {
+    bg:         #00000080;
+    fg:         #ffffff;
+    accent:     #444444;
+    button:     #1a1a1a;
+
+    background-color:   transparent;
+    text-color:         @fg;
+    /* Reduced font size for a smaller footprint */
+    font:               "JetBrainsMono Nerd Font 10";
+}
+
+window {
+    transparency:       "real";
+    /* Reduced width from 400px to 320px */
+    width:              299px;
+    border-radius:      8px;
+    background-color:   @bg;
+    border:             1px;
+    border-color:       @accent;
+}
+
+mainbox {
+    children:           [ inputbar, listview, mode-switcher ];
+    padding:            8px;
+}
+
+/* Search Bar */
+inputbar {
+    children:           [ prompt, entry ];
+    background-color:   @button;
+    border-radius:      6px;
+    padding:            5px 8px;
+    margin:             0 0 8px 0;
+}
+
+prompt {
+    font:               "JetBrainsMono Nerd Font 10";
+    padding:            0 5px 0 0;
+    text-color:         @accent;
+}
+
+entry {
+    placeholder:        "Find...";
+    placeholder-color:  #ffffff80;
+}
+
+/* Results List */
+listview {
+    /* Reduced from 10 to 6 lines to make the window much shorter */
+    lines:              10;
+    columns:            1;
+    fixed-height:       false;
+    spacing:            1px;
+    scrollbar:          false;
+}
+
+element {
+    /* Tighter padding for list items */
+    padding:            3px 6px;
+    border-radius:      4px;
+}
+
+element selected {
+    background-color:   @accent;
+    text-color:         @fg;
+}
+
+element-icon {
+    /* Smaller icons to match smaller text */
+    size:               20px;
+    margin:             0 6px 0 0;
+}
+
+/* Mode Switcher Buttons */
+mode-switcher {
+    spacing:            8px;
+    margin:             8px 0 0 0;
+}
+
+button {
+    padding:            3px;
+    background-color:   @button;
+    text-color:         @fg;
+    vertical-align:     0.5;
+    horizontal-align:   0.5;
+    border-radius:      50px;
+}
+
+button selected {
+    background-color:   @accent;
+    text-color:         @fg;
+}
